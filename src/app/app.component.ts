@@ -61,4 +61,18 @@ export class AppComponent {
       },
     },
   ];
+  choseFlight() {
+    console.log('Chose flight');
+  }
+  searchDeparture(event: KeyboardEvent) {
+    const target = event.target as HTMLInputElement;
+    console.log(target.value);
+  }
+  searchArrival(event: KeyboardEvent) {
+    const target = event.target as HTMLInputElement;
+    console.log(target.value);
+  }
+  searchDate(selectedDate: string) {
+    console.log('Selected date: ', selectedDate);
+  }
 }

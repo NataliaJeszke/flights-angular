@@ -2,30 +2,37 @@
   <nav class="row">
     <div class="nav-wrapper">
       <span class="brand-logo center">{{ title }}</span>
-
-      <span class="date">{{ getDate() | date : "fullDate" }}</span>
+      <span class="date">{{ getDate() | date : "fullDate" }}</span>    
     </div>
   </nav>
 
-  <div class="row">
+  <!-- <div class="row">
     <button class="btn col s2 offset-s10">Dodaj zadanie</button>
     <button class="btn col s2 offset-s10">Zakończ</button>
-  </div>
+  </div> -->
 
   <div class="row">
     <input
       class="col s8"
       type="text"
       placeholder="Dodaj zadanie i datę wykonania"
+      (keyup)="searchDeparture($event)"
     />
     <input class="col s2 disabled" type="date" />
-    <button class="btn-floating">+</button>
+    <input
+    class="col s8"
+    type="text"
+    placeholder="Dodaj zadanie i datę wykonania"
+    (keyup)="searchArrival($event)"
+  />
+  <input class="col s2 disabled" type="date"/>
+    <button class="btn-floating btnSearch">Search</button>
   </div>
 
   <ul class="collection">
-    <li class="collection-item row" *ngFor="let flight of flights">
+    <li class="collection-item row" *ngFor="let flight of flights;">
       <span class="col s10"
-        >Departure :{{ flight.departureCity }} - {{ flight.departureAirport }} -
+        >Departure : {{ flight.departureCity }} - {{ flight.departureAirport }} -
         {{ flight.formatDepratureDate() }}
       </span>
       <span class="col s10">
@@ -33,7 +40,7 @@
         {{ flight.formatArrivalDate() }}</span
       >
       <div class="col s2 right-align">
-        <button class="btn-floating btn-small green ml-5">
+        <button class="btn-floating btn-small green ml-5" (click)="choseFlight()">
           <i class="material-icons">check</i>
         </button>
       </div>
