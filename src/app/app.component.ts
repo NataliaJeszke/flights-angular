@@ -8,6 +8,9 @@ import { FlightDataInterface } from './FlightDataInterface';
 })
 export class AppComponent {
   title = 'Search for flights';
+  departureInputTxt = '';
+  arrivalInputTxt = '';
+
   getDate(): Date {
     return new Date();
   }
@@ -66,13 +69,18 @@ export class AppComponent {
   }
   searchDeparture(event: KeyboardEvent) {
     const target = event.target as HTMLInputElement;
+    this.departureInputTxt = target.value;
     console.log(target.value);
   }
   searchArrival(event: KeyboardEvent) {
     const target = event.target as HTMLInputElement;
+    this.arrivalInputTxt = target.value;
     console.log(target.value);
   }
   searchDate(selectedDate: string) {
     console.log('Selected date: ', selectedDate);
+  }
+  searchFlights() {
+    console.log('Search flights:::'+this.departureInputTxt+':::'+this.arrivalInputTxt);
   }
 }
