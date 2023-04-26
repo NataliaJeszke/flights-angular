@@ -17,6 +17,10 @@ export class AppComponent {
       arrival: 1640501040,
       flightNumber: '101',
       airline: 'SWA',
+      departureAirport: 'JFK',
+      arrivalAirport: 'LAX',
+      departureCity: 'New York',
+      arrivalCity: 'Los Angeles',
       formatDepratureDate() {
         return new Date(this.departure * 1000).toLocaleString();
       },
@@ -29,6 +33,10 @@ export class AppComponent {
       arrival: 1640501040,
       flightNumber: '101',
       airline: 'SWA',
+      departureAirport: 'JFK',
+      arrivalAirport: 'LAX',
+      departureCity: 'New York',
+      arrivalCity: 'Los Angeles',
       formatDepratureDate() {
         return new Date(this.departure * 1000).toLocaleString();
       },
@@ -41,6 +49,10 @@ export class AppComponent {
       arrival: 1640501040,
       flightNumber: '101',
       airline: 'SWA',
+      departureAirport: 'JFK',
+      arrivalAirport: 'LAX',
+      departureCity: 'New York',
+      arrivalCity: 'Los Angeles',
       formatDepratureDate() {
         return new Date(this.departure * 1000).toLocaleString();
       },
