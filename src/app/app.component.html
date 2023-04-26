@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="row">
-    <div class="nav-wrapper">
+    <div class="nav-wrapper herobanner">
       <span class="brand-logo center">{{ title }}</span>
       <span class="date">{{ getDate() | date : "fullDate" }}</span>
     </div>
@@ -15,18 +15,36 @@
     <input
       class="col s8"
       type="text"
-      placeholder="Dodaj zadanie i datę wykonania"
-      (keyup)="searchDeparture($event)"
+      placeholder="Podaj miasto wylotu"
+      (keyup)="(0)"
+      #departureInput
     />
-    <input class="col s2 disabled" type="date" />
+    <input class="col s2 disabled" type="date" (change)="0" #dateDepartureInput />
     <input
       class="col s8"
       type="text"
-      placeholder="Dodaj zadanie i datę wykonania"
-      (keyup)="searchArrival($event)"
+      placeholder="Podaj miasto przylotu"
+      (keyup)="(0)"
+      #arrivalInput
     />
-    <input class="col s2 disabled" type="date" />
-    <button class="btn-floating btnSearch" (click)="searchFlights()">
+    <button
+      class="btn-floating btnSearch"
+      (click)="
+        searchData(
+          departureInput.value,
+          arrivalInput.value,
+          dateDepartureInput.value
+        );
+        departureInput.value = '';
+        arrivalInput.value = '';
+        dateDepartureInput.value = ''
+      "
+      [disabled]="
+        departureInput.value === '' ||
+        arrivalInput.value === '' ||
+        dateDepartureInput.value === ''
+      "
+    >
       Search
     </button>
   </div>

@@ -35,3 +35,15 @@
     margin-top: 10px;
     margin-left: 20px;
   }
+
+  .herobanner{
+   background-image: url("../assets/herobanner.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+  }
+
+  nav {
+    height: 300px;
+  }

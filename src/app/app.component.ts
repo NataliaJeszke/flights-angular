@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FlightDataInterface } from './FlightDataInterface';
+import { SearchFlightData } from './SearchFlightData';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,10 @@ import { FlightDataInterface } from './FlightDataInterface';
 })
 export class AppComponent {
   title = 'Search for flights';
-  departureInputTxt = '';
-  arrivalInputTxt = '';
+  // departureInput = '';
+  // arrivalInput = '';
+  // dateDepartureInput = '';
+  searchSetData = [];
 
   getDate(): Date {
     return new Date();
@@ -67,20 +70,22 @@ export class AppComponent {
   choseFlight() {
     console.log('Chose flight');
   }
-  searchDeparture(event: KeyboardEvent) {
-    const target = event.target as HTMLInputElement;
-    this.departureInputTxt = target.value;
-    console.log(target.value);
-  }
-  searchArrival(event: KeyboardEvent) {
-    const target = event.target as HTMLInputElement;
-    this.arrivalInputTxt = target.value;
-    console.log(target.value);
-  }
-  searchDate(selectedDate: string) {
-    console.log('Selected date: ', selectedDate);
-  }
-  searchFlights() {
-    console.log('Search flights:::'+this.departureInputTxt+':::'+this.arrivalInputTxt);
+
+  searchData(
+    departureInput: string,
+    arrivalInput: string,
+    dateDepartureInput: string
+  ) {
+    const searchFlightData: SearchFlightData = {
+      departureInput,
+      arrivalInput,
+      dateDepartureInput,
+      formatDepartureDateUnix() {
+        return new Date(dateDepartureInput).getTime() / 1000;
+      },
+
+    };
+    console.log(departureInput, arrivalInput, searchFlightData.formatDepartureDateUnix());
   }
 }
+
