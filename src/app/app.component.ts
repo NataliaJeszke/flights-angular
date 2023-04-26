@@ -9,10 +9,10 @@ import { SearchFlightData } from './SearchFlightData';
 })
 export class AppComponent {
   title = 'Search for flights';
-  // departureInput = '';
-  // arrivalInput = '';
-  // dateDepartureInput = '';
   searchSetData = [];
+  departureInputValue = '';
+  arrivalInputValue = '';
+  dateInputValue = '0';
 
   getDate(): Date {
     return new Date();
@@ -83,9 +83,11 @@ export class AppComponent {
       formatDepartureDateUnix() {
         return new Date(dateDepartureInput).getTime() / 1000;
       },
-
     };
-    console.log(departureInput, arrivalInput, searchFlightData.formatDepartureDateUnix());
+    console.log(
+      departureInput,
+      arrivalInput,
+      searchFlightData.formatDepartureDateUnix()
+    );
   }
 }
-

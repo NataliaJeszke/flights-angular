@@ -15,40 +15,34 @@
     <input
       class="col s8"
       type="text"
-      placeholder="Podaj miasto wylotu"
-      (keyup)="(0)"
-      #departureInput
+      placeholder="Podaj miejsce wylotu"
+      [(ngModel)]="departureInputValue"
     />
-    <input class="col s2 disabled" type="date" (change)="0" #dateDepartureInput />
+    <input class="col s2 disabled" type="date" [(ngModel)]="dateInputValue" />
     <input
       class="col s8"
       type="text"
-      placeholder="Podaj miasto przylotu"
-      (keyup)="(0)"
-      #arrivalInput
+      placeholder="Podaj miejsce przylotu"
+      [(ngModel)]="arrivalInputValue"
     />
     <button
       class="btn-floating btnSearch"
       (click)="
-        searchData(
-          departureInput.value,
-          arrivalInput.value,
-          dateDepartureInput.value
-        );
-        departureInput.value = '';
-        arrivalInput.value = '';
-        dateDepartureInput.value = ''
+        searchData(departureInputValue, arrivalInputValue, dateInputValue);
+        departureInputValue = '';
+        arrivalInputValue = '';
+        dateInputValue = ''
       "
       [disabled]="
-        departureInput.value === '' ||
-        arrivalInput.value === '' ||
-        dateDepartureInput.value === ''
+        departureInputValue === '' ||
+        arrivalInputValue === '' ||
+        dateInputValue === ''
       "
     >
       Search
     </button>
   </div>
-
+  <h2>Popularne loty</h2>
   <ul class="collection">
     <li class="collection-item row" *ngFor="let flight of flights">
       <span class="col s10"
@@ -69,18 +63,35 @@
         </button>
       </div>
     </li>
-    <li class="collection-item row">
-      <span class="col done">Sprzątanie kuwet</span>
-    </li>
   </ul>
 
-  <h1>Dzisiaj brak zadań</h1>
-
+  <h2>Lista lotów</h2>
+  <ul class="collection">
+    <li class="collection-item row" *ngFor="let flight of flights">
+      <span class="col s10"
+        >Departure : {{ flight.departureCity }} -
+        {{ flight.departureAirport }} -
+        {{ flight.formatDepratureDate() }}
+      </span>
+      <span class="col s10">
+        Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
+        {{ flight.formatArrivalDate() }}</span
+      >
+      <div class="col s2 right-align">
+        <button
+          class="btn-floating btn-small green ml-5"
+          (click)="choseFlight()"
+        >
+          <i class="material-icons">check</i>
+        </button>
+      </div>
+    </li>
+  </ul>
   <button class="btn red">Wyczyść</button>
 
   <footer class="page-footer mt-5">
     <div class="footer-copyright">
-      <div class="container">2020 © Lista zadań,All rights reserved.</div>
+      <div class="container">My GitHub</div>
     </div>
   </footer>
 </div>
