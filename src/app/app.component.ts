@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FlightDataInterface } from './FlightDataInterface';
-import { SearchFlightData } from './SearchFlightData';
+import { FlightDataInterface } from './models/FlightDataInterface';
+import { SearchFlightData } from './models/SearchFlightData';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,13 @@ export class AppComponent {
   departureInputValue = '';
   arrivalInputValue = '';
   dateInputValue = '0';
+
+  constructor(private flight: UsersService){
+    this.flight.getData().subscribe((data: any) => {
+      console.log(data);
+      this.searchSetData = data;
+    });
+  }
 
   getDate(): Date {
     return new Date();

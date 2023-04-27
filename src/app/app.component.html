@@ -65,29 +65,35 @@
     </li>
   </ul>
 
-  <h2>Lista lotów</h2>
-  <ul class="collection">
-    <li class="collection-item row" *ngFor="let flight of flights">
-      <span class="col s10"
-        >Departure : {{ flight.departureCity }} -
-        {{ flight.departureAirport }} -
-        {{ flight.formatDepratureDate() }}
-      </span>
-      <span class="col s10">
-        Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
-        {{ flight.formatArrivalDate() }}</span
-      >
-      <div class="col s2 right-align">
-        <button
-          class="btn-floating btn-small green ml-5"
-          (click)="choseFlight()"
+  <section *ngIf="flights.length > 0">
+    <h2>Lista lotów</h2>
+    <ul class="collection">
+      <li class="collection-item row" *ngFor="let flight of flights">
+        <span class="col s10"
+          >Departure : {{ flight.departureCity }} -
+          {{ flight.departureAirport }} -
+          {{ flight.formatDepratureDate() }}
+        </span>
+        <span class="col s10">
+          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
+          {{ flight.formatArrivalDate() }}</span
         >
-          <i class="material-icons">check</i>
-        </button>
-      </div>
-    </li>
-  </ul>
+        <div class="col s2 right-align">
+          <button
+            class="btn-floating btn-small green ml-5"
+            (click)="choseFlight()"
+          >
+            <i class="material-icons">check</i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </section>
+
   <button class="btn red">Wyczyść</button>
+
+  <section>Formularz</section>
+  <section>Informacje o Twoim locie</section>
 
   <footer class="page-footer mt-5">
     <div class="footer-copyright">
