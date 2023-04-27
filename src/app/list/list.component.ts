@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FlightDataInterface } from '../models/FlightDataInterface';
+import { FLIGHTS } from '../models/Flights';
+import { HttpFlightsService } from '../services/http-flights.service';
 
 @Component({
   selector: 'app-list',
@@ -7,62 +9,16 @@ import { FlightDataInterface } from '../models/FlightDataInterface';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
+  constructor (private http: HttpFlightsService) {}
   searchSetData = [];
   departureInputValue = '';
   arrivalInputValue = '';
   dateInputValue = '0';
-
-  flights: FlightDataInterface[] = [
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-  ];
+  flights: FlightDataInterface[] = FLIGHTS;
   choseFlight() {
     console.log('Chose flight');
   }
+  get(){
+    this.http.getFlights().subscribe();
+}
 }
