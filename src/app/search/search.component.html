@@ -1,0 +1,31 @@
+<div class="row">
+    <input
+      class="col s8"
+      type="text"
+      placeholder="Podaj miejsce wylotu"
+      [(ngModel)]="departureInputValue"
+    />
+    <input class="col s2 disabled" type="date" [(ngModel)]="dateInputValue" />
+    <input
+      class="col s8"
+      type="text"
+      placeholder="Podaj miejsce przylotu"
+      [(ngModel)]="arrivalInputValue"
+    />
+    <button
+      class="btn-floating btnSearch"
+      (click)="
+        searchData(departureInputValue, arrivalInputValue, dateInputValue);
+        departureInputValue = '';
+        arrivalInputValue = '';
+        dateInputValue = ''
+      "
+      [disabled]="
+        departureInputValue === '' ||
+        arrivalInputValue === '' ||
+        dateInputValue === ''
+      "
+    >
+      Search
+    </button>
+  </div>

@@ -21,10 +21,6 @@
     max-height: 500px;
   }
 
-  .date {
-    margin-left: 20px;
-  }
-
   .search-bar{
     width: 100px;
   }
@@ -34,16 +30,4 @@
     height: 100px;
     margin-top: 10px;
     margin-left: 20px;
-  }
-
-  .herobanner{
-   background-image: url("../assets/herobanner.jpg");
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   position: relative;
-  }
-
-  nav {
-    height: 300px;
   }

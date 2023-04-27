@@ -1,0 +1,15 @@
+.herobanner{
+    background-image: url("../../../src/assets/herobanner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+   }
+ 
+   nav {
+     height: 300px;
+   }
+
+   .date {
+    margin-left: 20px;
+  }

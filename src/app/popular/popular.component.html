@@ -1,10 +1,5 @@
-<div class="container">
- <app-header></app-header>
- <app-search></app-search>
-  <app-popular></app-popular>
-  
-  <section *ngIf="flights.length > 0">
-    <h2>Lista lotów</h2>
+<section>
+    <h2>Popularne loty</h2>
     <ul class="collection">
       <li class="collection-item row" *ngFor="let flight of flights">
         <span class="col s10"
@@ -26,12 +21,4 @@
         </div>
       </li>
     </ul>
-  </section>
-
-  <button class="btn red">Wyczyść</button>
-
-  <section>Formularz</section>
-  <section>Informacje o Twoim locie</section>
-
-<app-footer></app-footer>
-</div>
+   </section>
