@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchFlightData } from '../models/SearchFlightData';
 import { FlightDataInterface } from '../models/FlightDataInterface';
 
 @Component({

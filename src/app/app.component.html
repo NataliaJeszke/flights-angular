@@ -1,37 +1,13 @@
 <div class="container">
- <app-header></app-header>
- <app-search></app-search>
+  <app-header></app-header>
+  <app-search></app-search>
   <app-popular></app-popular>
-  
-  <section *ngIf="flights.length > 0">
-    <h2>Lista lotów</h2>
-    <ul class="collection">
-      <li class="collection-item row" *ngFor="let flight of flights">
-        <span class="col s10"
-          >Departure : {{ flight.departureCity }} -
-          {{ flight.departureAirport }} -
-          {{ flight.formatDepratureDate() }}
-        </span>
-        <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
-          {{ flight.formatArrivalDate() }}</span
-        >
-        <div class="col s2 right-align">
-          <button
-            class="btn-floating btn-small green ml-5"
-            (click)="choseFlight()"
-          >
-            <i class="material-icons">check</i>
-          </button>
-        </div>
-      </li>
-    </ul>
-  </section>
+  <app-list></app-list>
 
   <button class="btn red">Wyczyść</button>
 
   <section>Formularz</section>
   <section>Informacje o Twoim locie</section>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
