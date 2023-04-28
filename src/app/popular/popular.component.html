@@ -1,20 +1,20 @@
 <section>
     <h2>Popularne loty</h2>
     <ul class="collection">
-      <li class="collection-item row" *ngFor="let flight of flights">
+      <li class="collection-item row" *ngFor="let flight of randomFlights">
         <span class="col s10"
           >Departure : {{ flight.departureCity }} -
           {{ flight.departureAirport }} -
-          {{ flight.formatDepratureDate() }}
+          
         </span>
         <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
-          {{ flight.formatArrivalDate() }}</span
+          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} - {{ formatArrivalDate(flight) }}
+          </span
         >
         <div class="col s2 right-align">
           <button
             class="btn-floating btn-small green ml-5"
-            (click)="choseFlight()"
+            (click)="get()"
           >
             <i class="material-icons">check</i>
           </button>
