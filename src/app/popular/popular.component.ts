@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FlightDataInterface } from '../models/FlightDataInterface';
+import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
+import { HttpFlightsService } from '../services/http-flights.service';
 
 @Component({
   selector: 'app-popular',
@@ -7,63 +8,30 @@ import { FlightDataInterface } from '../models/FlightDataInterface';
   styleUrls: ['./popular.component.css']
 })
 export class PopularComponent {
-  searchSetData = [];
-  departureInputValue = '';
-  arrivalInputValue = '';
-  dateInputValue = '0';
 
+  constructor (private http: HttpFlightsService) {}
 
+  ngOnInit(): void {
+    this.get()};
 
-  flights: FlightDataInterface[] = [
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-    {
-      departure: 1640496840,
-      arrival: 1640501040,
-      flightNumber: '101',
-      airline: 'SWA',
-      departureAirport: 'JFK',
-      arrivalAirport: 'LAX',
-      departureCity: 'New York',
-      arrivalCity: 'Los Angeles',
-      formatDepratureDate() {
-        return new Date(this.departure * 1000).toLocaleString();
-      },
-      formatArrivalDate() {
-        return new Date(this.arrival * 1000).toLocaleString();
-      },
-    },
-  ];
+  flights:FlightData[] = [];
+
+  get(){
+    this.http.getFlights().subscribe(response => {
+      this.flights = response;
+      console.log(this.flights);
+    }); 
+}
+
+get randomFlights() {
+  const sortedFlights = this.flights.sort(() => 0.5 - Math.random());
+  return sortedFlights.slice(0, 5);
+}
+
+formatArrivalDate(flight: FlightData): string {
+  return new Date(flight.arrival * 1000).toLocaleString();
+}
+
   choseFlight() {
     console.log('Chose flight');
   }
