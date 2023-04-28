@@ -1,0 +1,184 @@
+{
+    "flights": [
+      {
+        "departure": 1640496840,
+        "arrival": 1640501040,
+        "flightNumber": "101",
+        "airline": "SWA",
+        "departureAirport": "JFK",
+        "arrivalAirport": "LAX",
+        "departureCity": "New York",
+        "arrivalCity": "Los Angeles",
+        "price": 120.50
+      },
+      {
+        "departure": 1640511600,
+        "arrival": 1640518800,
+        "flightNumber": "201",
+        "airline": "DAL",
+        "departureAirport": "LAX",
+        "arrivalAirport": "ORD",
+        "departureCity": "Los Angeles",
+        "arrivalCity": "Chicago",
+        "price": 200.75
+      },
+      {
+        "departure": 1640526000,
+        "arrival": 1640533200,
+        "flightNumber": "301",
+        "airline": "LOT",
+        "departureAirport": "WAW",
+        "arrivalAirport": "FRA",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Frankfurt",
+        "price": 90.00
+      },
+      {
+        "departure": 1640538000,
+        "arrival": 1640548800,
+        "flightNumber": "401",
+        "airline": "LOT",
+        "departureAirport": "FRA",
+        "arrivalAirport": "WAW",
+        "departureCity": "Frankfurt",
+        "arrivalCity": "Warsaw",
+        "price": 105.50
+      },
+      {
+        "departure": 1640564400,
+        "arrival": 1640578800,
+        "flightNumber": "501",
+        "airline": "SWA",
+        "departureAirport": "LAX",
+        "arrivalAirport": "WAW",
+        "departureCity": "Los Angeles",
+        "arrivalCity": "Warsaw",
+        "price": 245.75
+      },
+      {
+        "departure": 1640550000,
+        "arrival": 1640560800,
+        "flightNumber": "601",
+        "airline": "DAL",
+        "departureAirport": "ORD",
+        "arrivalAirport": "WAW",
+        "departureCity": "Chicago",
+        "arrivalCity": "Warsaw",
+        "price": 180.25
+      },
+      {
+        "departure": 1640578800,
+        "arrival": 1640586600,
+        "flightNumber": "701",
+        "airline": "SWA",
+        "departureAirport": "WAW",
+        "arrivalAirport": "LAX",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Los Angeles",
+        "price": 275.00
+      },
+      {
+        "departure": 1640596800,
+        "arrival": 1640608200,
+        "flightNumber": "801",
+        "airline": "DAL",
+        "departureAirport": "WAW",
+        "arrivalAirport": "ORD",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Chicago",
+        "price": 195.50
+      },
+      {
+        "departure": 1643408400,
+        "arrival": 1643419260,
+        "flightNumber": "123",
+        "airline": "LOT",
+        "departureAirport": "WAW",
+        "arrivalAirport": "CDG",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Paris",
+        "price": 75.50
+        },
+    {
+        "departure": 1643089200,
+        "arrival": 1643100600,
+        "flightNumber": "555",
+        "airline": "SWA",
+        "departureAirport": "LAX",
+        "arrivalAirport": "LAS",
+        "departureCity": "Los Angeles",
+        "arrivalCity": "Las Vegas",
+        "price": 120.00
+         },
+    {
+        "departure": 1643600760,
+        "arrival": 1643606340,
+        "flightNumber": "111",
+        "airline": "RYR",
+        "departureAirport": "KRK",
+        "arrivalAirport": "LGW",
+        "departureCity": "Krakow",
+        "arrivalCity": "London",
+        "price": 50.00
+         },
+    {
+        "departure": 1643624400,
+        "arrival": 1643634060,
+        "flightNumber": "222",
+        "airline": "LOT",
+        "departureAirport": "WAW",
+        "arrivalAirport": "BCN",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Barcelona",
+         "price": 90.00
+         },
+
+    {
+        "departure": 1640511600,
+        "arrival": 1640518800,
+        "flightNumber": "202",
+        "airline": "DAL",
+        "departureAirport": "ORD",
+        "arrivalAirport": "LAX",
+        "departureCity": "Chicago",
+        "arrivalCity": "Los Angeles",
+        "price": 185.25
+        },
+
+     {
+        "departure": 1640511600,
+        "arrival": 1640518800,
+        "flightNumber": "201",
+        "airline": "DAL",
+        "departureAirport": "LAX",
+        "arrivalAirport": "ORD",
+        "departureCity": "Los Angeles",
+        "arrivalCity": "Chicago",
+        "price": 200.75
+         },
+
+     {
+        "departure": 1643243460,
+        "arrival": 1643255100,
+        "flightNumber": "345",
+        "airline": "LOT",
+        "departureAirport": "WAW",
+        "arrivalAirport": "FRA",
+        "departureCity": "Warsaw",
+        "arrivalCity": "Frankfurt",
+        "price": 80.00
+        },
+    {
+        "departure": 1643354820,
+        "arrival": 1643365680,
+        "flightNumber": "789",
+        "airline": "RYR",
+        "departureAirport": "WRO",
+        "arrivalAirport": "LGW",
+        "departureCity": "Wroclaw",
+        "arrivalCity": "London",
+        "price": 65.00
+         }                       
+    ]
+}
+  

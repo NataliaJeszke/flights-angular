@@ -17,5 +17,4 @@ export class HttpFlightsService {
       .get<FlightDataInterface[]>(this.url)
       .pipe(tap(console.log));
   }
-
 }
