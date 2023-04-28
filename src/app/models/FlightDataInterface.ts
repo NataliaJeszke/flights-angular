@@ -7,11 +7,11 @@ export interface FlightDataInterface {
   arrivalAirport: string;
   departureCity: string;
   arrivalCity: string;
-  formatDepratureDate(): string;
+  formatDepartureDate(): string;
   formatArrivalDate(): string;
 }
 
-class FlightData implements FlightDataInterface {
+export class FlightData implements FlightDataInterface {
   departure: number;
   arrival: number;
   flightNumber: string;
@@ -39,7 +39,7 @@ class FlightData implements FlightDataInterface {
     this.departureCity = departureCity;
     this.arrivalCity = arrivalCity;
   }
-  formatDepratureDate(): string {
+  formatDepartureDate(): string {
     return new Date(this.departure * 1000).toLocaleString();
   }
   formatArrivalDate(): string {

@@ -5,11 +5,11 @@
         <span class="col s10"
           >Departure : {{ flight.departureCity }} -
           {{ flight.departureAirport }} -
-          {{ flight.formatDepratureDate() }}
+          
         </span>
         <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
-          {{ flight.formatArrivalDate() }}</span
+          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} - {{ formatArrivalDate(flight) }}
+          </span
         >
         <div class="col s2 right-align">
           <button

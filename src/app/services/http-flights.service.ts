@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class HttpFlightsService {
   private url =
-    'http://api.aviationstack.com/v1/flights?access_key=ec54ce9af6c2715258c76721e954a5bc';
+    'http://localhost:3000/flights';
   constructor(private http: HttpClient) {}
 
   getFlights(): Observable<FlightDataInterface[]> {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FlightDataInterface } from '../models/FlightDataInterface';
-import { FLIGHTS } from '../models/Flights';
+import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
 
 @Component({
@@ -9,16 +8,28 @@ import { HttpFlightsService } from '../services/http-flights.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
+  formatArrivalDate(flight: FlightData): string {
+    return new Date(flight.arrival * 1000).toLocaleString();
+  }
+
   constructor (private http: HttpFlightsService) {}
-  searchSetData = [];
-  departureInputValue = '';
-  arrivalInputValue = '';
-  dateInputValue = '0';
-  flights: FlightDataInterface[] = FLIGHTS;
+
+  ngOnInit(): void {
+    this.get()};
+
+  flights:FlightData[] = [];
+
   choseFlight() {
     console.log('Chose flight');
   }
   get(){
-    this.http.getFlights().subscribe();
+    this.http.getFlights().subscribe(response => {
+      this.flights = response;
+      console.log(this.flights);
+    });
+  
 }
+
 }
+
+
