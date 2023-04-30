@@ -1,8 +1,9 @@
 <div class="nav-container">
     <span class="date">Today is: {{ getDate() | date : "fullDate" }}</span>
     <ul>
-      <li><a href="/about-us">About Us</a></li>
-      <li><a href="/travel-guide">Travel Guide</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a routerLink="/about-us" routerLinkActive="active-link">About Us</a></li>
+      <li><a routerLink="/travel-guide" routerLinkActive="active-link">Travel Guide</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
     </ul>
   </div>
