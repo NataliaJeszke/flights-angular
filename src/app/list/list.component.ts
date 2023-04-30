@@ -12,24 +12,21 @@ export class ListComponent {
     return new Date(flight.arrival * 1000).toLocaleString();
   }
 
-  constructor (private http: HttpFlightsService) {}
+  constructor(private http: HttpFlightsService) {}
 
   ngOnInit(): void {
-    this.get()};
+    this.get();
+  }
 
-  flights:FlightData[] = [];
+  flights: FlightData[] = [];
 
   choseFlight() {
     console.log('Chose flight');
   }
-  get(){
-    this.http.getFlights().subscribe(response => {
+  get() {
+    this.http.getFlights().subscribe((response) => {
       this.flights = response;
       console.log(this.flights);
     });
-  
+  }
 }
-
-}
-
-
