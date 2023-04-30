@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Search for flights';
-  getDate(): Date {
-    return new Date();
-  }
 }
