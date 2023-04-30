@@ -15,8 +15,10 @@ export class SearchComponent {
   searchData(
     departureInput: string,
     arrivalInput: string,
-    dateDepartureInput: string
+    dateDepartureInput: string,
+
   ) {
+
     const searchFlightData: SearchFlightData = {
       departureInput,
       arrivalInput,
