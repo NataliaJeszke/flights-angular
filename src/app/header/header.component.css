@@ -10,23 +10,12 @@
      height: 300px;
    }
 
-
   .nav-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-  }
-
-
-  .nav-container{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 20px;
-    text-align: center;
-    justify-content: center;
   }
 
   .brand-logo{
@@ -37,8 +26,4 @@
     nav{
       height: 400px;
     }
-  }
-
-  li{
-    font-weight: bold;
   }

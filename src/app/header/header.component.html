@@ -1,13 +1,6 @@
 <nav class="row">
   <div class="nav-wrapper herobanner">
-    <div class="nav-container">
-      <span class="date">Today is: {{ getDate() | date : "fullDate" }}</span>
-      <ul>
-        <li><a href="/about-us">About Us</a></li>
-        <li><a href="/travel-guide">Travel Guide</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
+    <app-navbar></app-navbar>
     <div class="hero-text">
       <span class="brand-logo center">{{ title }}</span>
     </div>
