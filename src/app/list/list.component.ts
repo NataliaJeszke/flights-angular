@@ -11,6 +11,10 @@ import { SearchFlightData } from '../models/SearchFlightData';
 })
 export class ListComponent {
   searchValues: SearchFlightData[] = [];
+  flights: FlightData[] = [];
+  searchResults: FlightData[] = [];
+  departureCity: string = '';
+  arrivalCity: string = '';
 
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();
@@ -22,20 +26,29 @@ export class ListComponent {
   ) {}
 
   ngOnInit(): void {
-    this.get();
     this.searchValues = this.searchService.getSearchValues();
+    this.get();
   }
 
-  flights: FlightData[] = [];
-
-  choseFlight() {
-    console.log('Chose flight');
-  }
   get() {
     this.http.getFlights().subscribe((response) => {
       this.flights = response;
-      console.log(this.flights);
-      console.log('to są searchValues z importu z services' + this.searchValues);
+      this.filterFlight();
+    });
+  }
+
+  filterFlight() {
+    this.searchResults = [];
+  
+    this.searchValues.forEach((searchValue) => {
+      this.departureCity = searchValue.departureInput;
+      this.arrivalCity = searchValue.arrivalInput;
+  
+      const matchingFlights = this.flights.filter((flight) => {
+        return flight.departureCity === this.departureCity && flight.arrivalCity === this.arrivalCity;
+      });
+  
+      this.searchResults.push(...matchingFlights);
     });
   }
 }
