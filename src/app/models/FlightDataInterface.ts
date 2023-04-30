@@ -46,4 +46,3 @@ export class FlightData implements FlightDataInterface {
     return new Date(this.arrival * 1000).toLocaleString();
   }
 }
-//<p> Czas wylotu: {{ flight.departure.scheduled * 1000 | date:'medium' }}</p>
