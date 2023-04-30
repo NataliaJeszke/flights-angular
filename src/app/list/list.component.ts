@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
+import { FlightData } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
+import { SearchService } from '../services/search.service';
+import { SearchFlightData } from '../models/SearchFlightData';
 
 @Component({
   selector: 'app-list',
@@ -8,14 +10,20 @@ import { HttpFlightsService } from '../services/http-flights.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
+  searchValues: SearchFlightData[] = [];
+
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();
   }
 
-  constructor(private http: HttpFlightsService) {}
+  constructor(
+    private http: HttpFlightsService,
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {
     this.get();
+    this.searchValues = this.searchService.getSearchValues();
   }
 
   flights: FlightData[] = [];
@@ -27,6 +35,7 @@ export class ListComponent {
     this.http.getFlights().subscribe((response) => {
       this.flights = response;
       console.log(this.flights);
+      console.log('to są searchValues z importu z services' + this.searchValues);
     });
   }
 }
