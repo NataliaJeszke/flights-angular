@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../models/PassengerInterface';
+import { NgForm } from '@angular/forms';
+import { PassengerService } from '../services/passenger.service';
 
 @Component({
   selector: 'app-form',
@@ -7,8 +9,14 @@ import { Passenger } from '../models/PassengerInterface';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  model!: Partial<Passenger>;
-  constructor() {}
+  model: Partial<Passenger> = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: 0,
+    address: '',
+  };
+  constructor(private passengerService: PassengerService) {}
   ngOnInit(): void {
     this.model = {
       firstName: '',
@@ -17,5 +25,8 @@ export class FormComponent implements OnInit {
       phoneNumber: 0,
       address: '',
     };
+  }
+  send() {
+    this.passengerService.addPassengerValue(this.model);
   }
 }
