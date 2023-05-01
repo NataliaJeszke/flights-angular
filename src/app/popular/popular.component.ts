@@ -31,6 +31,9 @@ export class PopularComponent {
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();
   }
+  formatDepartureDate(flight: FlightData): string {
+    return new Date(flight.departure * 1000).toLocaleString();
+  }
 
   choseFlight() {
     console.log('Chose flight');
