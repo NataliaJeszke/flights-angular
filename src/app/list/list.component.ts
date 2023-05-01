@@ -15,6 +15,8 @@ export class ListComponent {
   searchResults: FlightData[] = [];
   departureCity: string = '';
   arrivalCity: string = '';
+  flightsWithIds: FlightData[] = [];
+  id: string = '';
 
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();
@@ -42,20 +44,30 @@ export class ListComponent {
 
   filterFlight() {
     this.searchResults = [];
-  
+
     this.searchValues.forEach((searchValue) => {
       this.departureCity = searchValue.departureInput;
       this.arrivalCity = searchValue.arrivalInput;
-  
+
       const matchingFlights = this.flights.filter((flight) => {
-        return flight.departureCity === this.departureCity && flight.arrivalCity === this.arrivalCity;
+        return (
+          flight.departureCity === this.departureCity &&
+          flight.arrivalCity === this.arrivalCity
+        );
       });
-  
-      this.searchResults.push(...matchingFlights);
+
+      const flightsWithIds = matchingFlights.map((flight, index) => {
+        return {
+          ...flight,
+          id: `${this.departureCity}-${this.arrivalCity}-${index}`,
+        };
+      });
+
+      this.searchResults.push(...flightsWithIds);
     });
   }
 
-  chosenFlight() {
-    console.log("klik");
+  chosenFlight(id: string) {
+    console.log('Wybrano lot o ID:', id);
   }
 }
