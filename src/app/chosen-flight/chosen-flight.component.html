@@ -1,0 +1,11 @@
+<ul class="collection">
+  <li class="collection-item row" *ngFor="let flight of chosenFlightValues">
+    <span class="col s10"
+      >Departure : {{ flight.departureCity }} - {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
+    </span>
+    <span class="col s10">
+      Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} - {{ formatArrivalDate(flight) }}
+    </span>
+    <div class="col s2 right-align"></div>
+  </li>
+</ul>

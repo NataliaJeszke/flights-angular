@@ -1,5 +1,9 @@
-<div class="grid">
-  <form class="container" #passengerForm="ngForm" (ngSubmit)="send()">
+<div class="grid form-container">
+  <div class="chosen-flight-info">
+    <h2>Flight Form</h2>
+    <app-chosen-flight></app-chosen-flight>
+  </div>
+  <form class="container" #passengerForm="ngForm" (ngSubmit)="send()" ngForm>
     <label for="firstName">First Name</label>
     <input
       type="text"
@@ -8,18 +12,73 @@
       name="firstName"
     />
     <label for="lastName">Last Name</label>
-    <input type="text" placeholder="Last Name" [(ngModel)]="model.lastName"
-    name="lastName"/>
+    <input
+      type="text"
+      placeholder="Last Name"
+      [(ngModel)]="model.lastName"
+      name="lastName"
+    />
     <label for="email">E-mail</label>
-    <input type="email" placeholder="E-mail" [(ngModel)]="model.email"
-    name="email" />
+    <input
+      type="email"
+      placeholder="E-mail"
+      [(ngModel)]="model.email"
+      name="email"
+    />
     <label for="phoneNumber">Phone Number</label>
-    <input type="tel" placeholder="Phone number" [(ngModel)]="model.phoneNumber"
-    name="phoneNumber" />
+    <input
+      type="tel"
+      placeholder="Phone number"
+      [(ngModel)]="model.phoneNumber"
+      name="phoneNumber"
+    />
     <label for="address">Address</label>
-    <input type="text" placeholder="Address" [(ngModel)]="model.address"
-    name="address" />
-    <button type="submit">Order</button>
-    <button type="button">Go Back</button>
+    <input
+      type="text"
+      placeholder="Address"
+      [(ngModel)]="model.address"
+      name="address"
+    />
+    <label for="numberOfPassengers">Number of Passengers</label>
+    <input
+      class="passengersNumberInput"
+      type="number"
+      placeholder="Number of Passengers"
+      [(ngModel)]="model.numberOfPassengers"
+      min="1"
+      max="10"
+      name="numberOfPassengers"
+    />
+
+    <div class="row">
+      <div class="col s12 checkboxes">
+        <label for="carryOnBaggage" class="checkbox-luggage">
+          <input
+            type="checkbox"
+            class="filled-in"
+            id="carryOnBaggage"
+            name="carryOnBaggage"
+            [(ngModel)]="model.carryOnBaggage"
+          />
+          <span>Hand Luggage</span>
+        </label>
+
+        <label for="checkedBaggage" class="checkbox-luggage">
+          <input
+            type="checkbox"
+            class="filled-in"
+            id="checkedBaggage"
+            name="checkedBaggage"
+            [(ngModel)]="model.checkedBaggage"
+          />
+          <span>Checked Luggage</span>
+        </label>
+      </div>
+
+      <div class="col s12 center-align">
+        <button type="submit" class="orderBtn">Order</button>
+        <button type="button" class="backBtn" routerLink="/">Go Back</button>
+      </div>
+    </div>
   </form>
 </div>
