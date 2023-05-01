@@ -1,4 +1,5 @@
 export interface FlightDataInterface {
+  id?: string;
   departure: number;
   arrival: number;
   flightNumber: string;
@@ -7,11 +8,12 @@ export interface FlightDataInterface {
   arrivalAirport: string;
   departureCity: string;
   arrivalCity: string;
-  formatDepartureDate(): string;
-  formatArrivalDate(): string;
+  formatDepartureDate?(): string;
+  formatArrivalDate?(): string;
 }
 
 export class FlightData implements FlightDataInterface {
+  id?: string;
   departure: number;
   arrival: number;
   flightNumber: string;
@@ -21,6 +23,7 @@ export class FlightData implements FlightDataInterface {
   departureCity: string;
   arrivalCity: string;
   constructor(
+    id: string,
     departure: number,
     arrival: number,
     flightNumber: string,
@@ -30,6 +33,7 @@ export class FlightData implements FlightDataInterface {
     departureCity: string,
     arrivalCity: string
   ) {
+    this.id = id;
     this.departure = departure;
     this.arrival = arrival;
     this.flightNumber = flightNumber;
@@ -39,10 +43,10 @@ export class FlightData implements FlightDataInterface {
     this.departureCity = departureCity;
     this.arrivalCity = arrivalCity;
   }
-  formatDepartureDate(): string {
+  formatDepartureDate?(): string {
     return new Date(this.departure * 1000).toLocaleString();
   }
-  formatArrivalDate(): string {
+  formatArrivalDate?(): string {
     return new Date(this.arrival * 1000).toLocaleString();
   }
 }
