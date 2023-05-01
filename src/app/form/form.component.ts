@@ -18,6 +18,9 @@ export class FormComponent implements OnInit {
     email: '',
     phoneNumber: 0,
     address: '',
+    numberOfPassengers: 1,
+    carryOnBaggage: false,
+    checkedBaggage: false,
   };
 
   constructor(
@@ -31,6 +34,9 @@ export class FormComponent implements OnInit {
       email: '',
       phoneNumber: 0,
       address: '',
+      numberOfPassengers: 1,
+      carryOnBaggage: false,
+      checkedBaggage: false,
     };
     this.chosenFlightValues = this.chosenFlightService.getChosenFlightValues();
     this.getFlightValues();

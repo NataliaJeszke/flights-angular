@@ -1,0 +1,20 @@
+.orderBtn{
+ margin-top: 50px;
+ margin-right: 50px;
+}
+
+
+.checkbox-luggage{
+    margin-right: 50px;
+}
+
+.passengersNumberInput{
+    margin-bottom: 50px !important;
+}
+
+.checkboxes{
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
