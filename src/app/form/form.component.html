@@ -1,4 +1,20 @@
 <div class="grid">
+  <div>
+    <h2>Chosen Flight Form</h2>
+    <ul class="collection">
+      <li class="collection-item row" *ngFor="let flight of chosenFlightValues">
+        <span class="col s10"
+          >Departure : {{ flight.departureCity }} -
+          {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
+        </span>
+        <span class="col s10">
+          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
+          {{ formatArrivalDate(flight) }}
+        </span>
+        <div class="col s2 right-align"></div>
+      </li>
+    </ul>
+  </div>
   <form class="container" #passengerForm="ngForm" (ngSubmit)="send()">
     <label for="firstName">First Name</label>
     <input
@@ -8,17 +24,33 @@
       name="firstName"
     />
     <label for="lastName">Last Name</label>
-    <input type="text" placeholder="Last Name" [(ngModel)]="model.lastName"
-    name="lastName"/>
+    <input
+      type="text"
+      placeholder="Last Name"
+      [(ngModel)]="model.lastName"
+      name="lastName"
+    />
     <label for="email">E-mail</label>
-    <input type="email" placeholder="E-mail" [(ngModel)]="model.email"
-    name="email" />
+    <input
+      type="email"
+      placeholder="E-mail"
+      [(ngModel)]="model.email"
+      name="email"
+    />
     <label for="phoneNumber">Phone Number</label>
-    <input type="tel" placeholder="Phone number" [(ngModel)]="model.phoneNumber"
-    name="phoneNumber" />
+    <input
+      type="tel"
+      placeholder="Phone number"
+      [(ngModel)]="model.phoneNumber"
+      name="phoneNumber"
+    />
     <label for="address">Address</label>
-    <input type="text" placeholder="Address" [(ngModel)]="model.address"
-    name="address" />
+    <input
+      type="text"
+      placeholder="Address"
+      [(ngModel)]="model.address"
+      name="address"
+    />
     <button type="submit">Order</button>
     <button type="button">Go Back</button>
   </form>

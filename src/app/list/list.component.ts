@@ -3,7 +3,7 @@ import { FlightData } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
 import { SearchService } from '../services/search.service';
 import { SearchFlightData } from '../models/SearchFlightData';
-import { ChosenFlightService } from '../services/chosenFlight.service';
+import { ChosenFlightService } from '../services/chosen-flight.service';
 
 @Component({
   selector: 'app-list',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../models/PassengerInterface';
 import { NgForm } from '@angular/forms';
 import { PassengerService } from '../services/passenger.service';
-import { ChosenFlightService } from '../services/chosenFlight.service';
+import { ChosenFlightService } from '../services/chosen-flight.service';
 import { FlightData } from '../models/FlightDataInterface';
 
 @Component({
@@ -19,6 +19,7 @@ export class FormComponent implements OnInit {
     phoneNumber: 0,
     address: '',
   };
+
   constructor(
     private passengerService: PassengerService,
     private chosenFlightService: ChosenFlightService
@@ -32,8 +33,22 @@ export class FormComponent implements OnInit {
       address: '',
     };
     this.chosenFlightValues = this.chosenFlightService.getChosenFlightValues();
+    this.getFlightValues();
   }
   send() {
     this.passengerService.addPassengerValue(this.model);
+  }
+
+  getFlightValues() {
+    console.log(
+      'to jest chosen flight w komponencie form' + this.chosenFlightValues
+    );
+  }
+
+  formatArrivalDate(chosenFlightValues: FlightData): string {
+    return new Date(chosenFlightValues.arrival * 1000).toLocaleString();
+  }
+  formatDepartureDate(chosenFlightValues: FlightData): string {
+    return new Date(chosenFlightValues.departure * 1000).toLocaleString();
   }
 }
