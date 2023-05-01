@@ -1,1 +1,11 @@
-<p>form works!</p>
+<div class="grid">
+  <form class="container">
+    <input type="text" placeholder="First Name" [(ngModel)]="model.firstName" name="firstName" />
+    <input type="text" placeholder="Last Name" />
+    <input type="email" placeholder="E-mail" />
+    <input type="tel" placeholder="Phone number" />
+    <input type="text" placeholder="Address" />
+    <button type="submit">Order</button>
+    <button type="submit">Go Back</button>
+  </form>
+</div>
