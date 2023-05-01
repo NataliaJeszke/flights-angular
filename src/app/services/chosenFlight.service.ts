@@ -8,11 +8,11 @@ import { FlightData } from '../models/FlightDataInterface';
 export class ChosenFlightService {
   chosenFlightValues: FlightData[] = [];
 
-  addPassengerValue(flightData: FlightData) {
+  addChosenFlightValue(flightData: FlightData) {
     this.chosenFlightValues.push(flightData);
   }
 
-  getPassengerValues() {
+  getChosenFlightValues() {
     return this.chosenFlightValues;
   }
 }
