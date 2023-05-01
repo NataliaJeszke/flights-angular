@@ -10,6 +10,7 @@
       placeholder="First Name"
       [(ngModel)]="model.firstName"
       name="firstName"
+      required="required"
     />
     <label for="lastName">Last Name</label>
     <input
@@ -17,6 +18,7 @@
       placeholder="Last Name"
       [(ngModel)]="model.lastName"
       name="lastName"
+      required="required"
     />
     <label for="email">E-mail</label>
     <input
@@ -24,13 +26,19 @@
       placeholder="E-mail"
       [(ngModel)]="model.email"
       name="email"
+      required="required"
     />
-    <label for="phoneNumber">Phone Number</label>
+    <label for="phoneNumber">Phone Number (eg. 48000000000)</label>
+    <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
+      <p class="card-panel red darken-1" *ngIf="phoneNumber.errors">Phone number is required</p></ng-container>
     <input
       type="tel"
       placeholder="Phone number"
       [(ngModel)]="model.phoneNumber"
       name="phoneNumber"
+      required
+      pattern="\d{11}"
+      #phoneNumber="ngModel"
     />
     <label for="address">Address</label>
     <input
@@ -38,6 +46,7 @@
       placeholder="Address"
       [(ngModel)]="model.address"
       name="address"
+      required="required"
     />
     <label for="numberOfPassengers">Number of Passengers</label>
     <input
@@ -48,6 +57,7 @@
       min="1"
       max="10"
       name="numberOfPassengers"
+      required="required"
     />
 
     <div class="row">
@@ -76,7 +86,7 @@
       </div>
 
       <div class="col s12 center-align">
-        <button type="submit" class="orderBtn">Order</button>
+        <button type="submit" class="orderBtn" [disabled]="passengerForm.invalid">Order</button>
         <button type="button" class="backBtn" routerLink="/">Go Back</button>
       </div>
     </div>

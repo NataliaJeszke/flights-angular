@@ -139,9 +139,9 @@
         "flightNumber": "202",
         "airline": "DAL",
         "departureAirport": "ORD",
-        "arrivalAirport": "LAX",
+        "arrivalAirport": "POZ",
         "departureCity": "Chicago",
-        "arrivalCity": "Los Angeles",
+        "arrivalCity": "Poznan",
         "price": 185.25
         },
 
@@ -151,9 +151,9 @@
         "flightNumber": "201",
         "airline": "DAL",
         "departureAirport": "LAX",
-        "arrivalAirport": "ORD",
+        "arrivalAirport": "POZ",
         "departureCity": "Los Angeles",
-        "arrivalCity": "Chicago",
+        "arrivalCity": "Poznan",
         "price": 200.75
          },
 
