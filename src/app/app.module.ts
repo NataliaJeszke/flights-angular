@@ -17,9 +17,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { TravelGuideComponent } from './travel-guide/travel-guide.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChosenFlightComponent } from './chosen-flight/chosen-flight.component';
+import { PassengerInformationComponent } from './passenger-information/passenger-information.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, FormComponent, ConfirmationComponent, PopularComponent, ListComponent, SearchComponent, NavbarComponent, AboutUsComponent, TravelGuideComponent, ContactComponent, PageNotFoundComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, FormComponent, ConfirmationComponent, PopularComponent, ListComponent, SearchComponent, NavbarComponent, AboutUsComponent, TravelGuideComponent, ContactComponent, PageNotFoundComponent, ChosenFlightComponent, PassengerInformationComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

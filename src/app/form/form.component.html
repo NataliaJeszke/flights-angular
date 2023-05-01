@@ -1,21 +1,9 @@
 <div class="grid form-container">
   <div class="chosen-flight-info">
-    <h2>Chosen Flight Form</h2>
-    <ul class="collection">
-      <li class="collection-item row" *ngFor="let flight of chosenFlightValues">
-        <span class="col s10"
-          >Departure : {{ flight.departureCity }} -
-          {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
-        </span>
-        <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
-          {{ formatArrivalDate(flight) }}
-        </span>
-        <div class="col s2 right-align"></div>
-      </li>
-    </ul>
+    <h2>Flight Form</h2>
+    <app-chosen-flight></app-chosen-flight>
   </div>
-  <form class="container" #passengerForm="ngForm" (ngSubmit)="send()">
+  <form class="container" #passengerForm="ngForm" (ngSubmit)="send()" ngForm>
     <label for="firstName">First Name</label>
     <input
       type="text"
@@ -88,9 +76,7 @@
       </div>
 
       <div class="col s12 center-align">
-        <button type="submit" class="orderBtn" routerLink="/confirmation">
-          Order
-        </button>
+        <button type="submit" class="orderBtn">Order</button>
         <button type="button" class="backBtn" routerLink="/">Go Back</button>
       </div>
     </div>

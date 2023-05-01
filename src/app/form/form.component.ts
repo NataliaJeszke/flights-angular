@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../models/PassengerInterface';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PassengerService } from '../services/passenger.service';
 import { ChosenFlightService } from '../services/chosen-flight.service';
 import { FlightData } from '../models/FlightDataInterface';
@@ -25,7 +25,8 @@ export class FormComponent implements OnInit {
 
   constructor(
     private passengerService: PassengerService,
-    private chosenFlightService: ChosenFlightService
+    private chosenFlightService: ChosenFlightService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.model = {
@@ -43,6 +44,8 @@ export class FormComponent implements OnInit {
   }
   send() {
     this.passengerService.addPassengerValue(this.model);
+    console.log('to jest passenger z form' + this.model);
+    this.router.navigate(['/confirmation']);
   }
 
   getFlightValues() {
