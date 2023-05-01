@@ -4,7 +4,7 @@
       <li class="collection-item row" *ngFor="let flight of searchResults">
         <span class="col s10"
           >Departure : {{ flight.departureCity }} -
-          {{ flight.departureAirport }} -
+          {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
           
         </span>
         <span class="col s10">
@@ -14,7 +14,7 @@
         <div class="col s2 right-align">
           <button
             class="btn-floating btn-small green ml-5"
-            (click)="get()"
+            (click)="chosenFlight()"
           >
             <i class="material-icons">check</i>
           </button>

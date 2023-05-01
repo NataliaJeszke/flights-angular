@@ -19,6 +19,9 @@ export class ListComponent {
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();
   }
+  formatDepartureDate(flight: FlightData): string {
+    return new Date(flight.departure * 1000).toLocaleString();
+  }
 
   constructor(
     private http: HttpFlightsService,
@@ -50,5 +53,9 @@ export class ListComponent {
   
       this.searchResults.push(...matchingFlights);
     });
+  }
+
+  chosenFlight() {
+    console.log("klik");
   }
 }

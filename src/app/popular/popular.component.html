@@ -1,10 +1,10 @@
 <section>
-    <h2>Popularne loty</h2>
+    <h2>Popular flights</h2>
     <ul class="collection">
       <li class="collection-item row" *ngFor="let flight of popularFlights">
         <span class="col s10"
           >Departure : {{ flight.departureCity }} -
-          {{ flight.departureAirport }} -
+          {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
           
         </span>
         <span class="col s10">
