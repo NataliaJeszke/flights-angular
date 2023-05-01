@@ -3,6 +3,7 @@ import { FlightData } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
 import { SearchService } from '../services/search.service';
 import { SearchFlightData } from '../models/SearchFlightData';
+import { ChosenFlightService } from '../services/chosenFlight.service';
 
 @Component({
   selector: 'app-list',
@@ -27,7 +28,8 @@ export class ListComponent {
 
   constructor(
     private http: HttpFlightsService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private chosenFlightService: ChosenFlightService
   ) {}
 
   ngOnInit(): void {
@@ -68,6 +70,9 @@ export class ListComponent {
   }
 
   chosenFlight(id: string) {
-    console.log('Wybrano lot o ID:', id);
+    const chosenFlight = this.searchResults.find((flight) => flight.id === id);
+    if (chosenFlight) {
+      this.chosenFlightService.addChosenFlightValue(chosenFlight);
+    }
   }
 }
