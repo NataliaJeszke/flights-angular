@@ -48,13 +48,13 @@ export class ListComponent {
     this.searchResults = [];
 
     this.searchValues.forEach((searchValue) => {
-      this.departureCity = searchValue.departureInput;
-      this.arrivalCity = searchValue.arrivalInput;
+      this.departureCity = searchValue.departureInput.toLowerCase().trim();
+      this.arrivalCity = searchValue.arrivalInput.toLowerCase().trim();
 
       const matchingFlights = this.flights.filter((flight) => {
         return (
-          flight.departureCity === this.departureCity &&
-          flight.arrivalCity === this.arrivalCity
+          flight.departureCity.toLowerCase() === this.departureCity &&
+          flight.arrivalCity.toLowerCase() === this.arrivalCity
         );
       });
 

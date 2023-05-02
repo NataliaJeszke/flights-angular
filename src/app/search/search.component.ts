@@ -27,11 +27,7 @@ export class SearchComponent {
         return new Date(dateDepartureInput).getTime() / 1000;
       },
     };
-    console.log(
-      departureInput,
-      arrivalInput,
-      searchFlightData.formatDepartureDateUnix()
-    );
+    
     this.searchService.addSearchValue(searchFlightData);
   }
 }
