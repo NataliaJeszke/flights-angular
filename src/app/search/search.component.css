@@ -8,4 +8,10 @@
     height: 100px;
     margin-top: 10px;
     margin-left: 30px;
+    
 }
+
+.btnSearch:not(:disabled){
+    background-color: #426492 !important;
+}
+

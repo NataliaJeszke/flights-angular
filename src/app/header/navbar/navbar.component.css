@@ -5,8 +5,18 @@
     gap: 20px;
     text-align: center;
     justify-content: center;
+    color: black;
+    font-weight: bold;
   }
 
   li{
     font-weight: bold;
+  }
+
+  a{
+    color: rgb(36, 35, 35) !important;
+  }
+
+  a:hover{
+    color: black !important;
   }

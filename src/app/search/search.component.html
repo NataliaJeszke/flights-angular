@@ -1,32 +1,36 @@
 <div class="row search-container">
-    <input
-      class="col s8 departure-input"
-      type="text"
-      placeholder="Departure city"
-      [(ngModel)]="departureInputValue"
-    />
-    <input class="col s2 disabled date-input" type="date" [(ngModel)]="dateInputValue" />
-    <input
-      class="col s8 arrival-input"
-      type="text"
-      placeholder="Arrival city"
-      [(ngModel)]="arrivalInputValue"
-    />
-    <button
-      class="btn-floating btnSearch"
-      routerLink="/list"
-      (click)="
-        searchData(departureInputValue, arrivalInputValue, dateInputValue);
-        departureInputValue = '';
-        arrivalInputValue = '';
-        dateInputValue = ''
-      "
-      [disabled]="
-        departureInputValue === '' ||
-        arrivalInputValue === '' ||
-        dateInputValue === ''
-      "
-    >
-      Search
-    </button>
-  </div>
+  <input
+    class="col s8 departure-input"
+    type="text"
+    placeholder="Departure city"
+    [(ngModel)]="departureInputValue"
+  />
+  <input
+    class="col s2 disabled date-input"
+    type="date"
+    [(ngModel)]="dateInputValue"
+  />
+  <input
+    class="col s8 arrival-input"
+    type="text"
+    placeholder="Arrival city"
+    [(ngModel)]="arrivalInputValue"
+  />
+  <button
+    class="btn-floating btnSearch"
+    routerLink="/list"
+    (click)="
+      searchData(departureInputValue, arrivalInputValue, dateInputValue);
+      departureInputValue = '';
+      arrivalInputValue = '';
+      dateInputValue = ''
+    "
+    [disabled]="
+      departureInputValue === '' ||
+      arrivalInputValue === '' ||
+      dateInputValue === ''
+    "
+  >
+    Search
+  </button>
+</div>

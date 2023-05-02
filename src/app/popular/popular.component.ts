@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FlightData } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
+import { ChosenFlightService } from '../services/chosen-flight.service';
 
 @Component({
   selector: 'app-popular',
@@ -8,9 +9,15 @@ import { HttpFlightsService } from '../services/http-flights.service';
   styleUrls: ['./popular.component.css'],
 })
 export class PopularComponent {
-  constructor(private http: HttpFlightsService) {}
+  constructor(
+    private http: HttpFlightsService,
+    private chosenFlightService: ChosenFlightService
+  ) {}
 
   flights: FlightData[] = [];
+  departureCity: string = '';
+  arrivalCity: string = '';
+  popularResults: FlightData[] = [];
 
   ngOnInit(): void {
     this.get();
@@ -24,8 +31,14 @@ export class PopularComponent {
   }
 
   get popularFlights() {
-    const popularFlights = this.flights;
-    return popularFlights.slice(0, 5);
+    const flightsWithIds = this.flights.map((flight, index) => {
+      return {
+        ...flight,
+        id: `${flight.departureCity}-${flight.arrivalCity}-${flight.departure}-${index}`,
+      };
+    });
+  
+    return flightsWithIds.slice(0, 5);
   }
 
   formatArrivalDate(flight: FlightData): string {
@@ -35,7 +48,10 @@ export class PopularComponent {
     return new Date(flight.departure * 1000).toLocaleString();
   }
 
-  choseFlight() {
-    console.log('Chose flight');
+  chosenFlight(id: string) {
+    const chosenFlight = this.popularFlights.find((flight) => flight.id === id);
+    if (chosenFlight) {
+      this.chosenFlightService.addChosenFlightValue(chosenFlight);
+    }
   }
 }
