@@ -1,40 +1,43 @@
 <div class="passenger-info">
     <h2>Your information</h2>
-    <ul class="collection">
-      <li class="collection-item row" *ngFor="let passenger of passengerValues">
-        <span class="col s10"
-          >First name and last name : {{ passenger.firstName }} {{ passenger.lastName }}
-        </span>
-        <span class="col s10">
-          Email : {{ passenger.email }}
-        </span>
-        <span class="col s10">
-          Phone : {{ passenger.phoneNumber }}
-        </span>
-        <span class="col s10">
-          Address : {{ passenger.address }}
-        </span>
-        <span class="col s10">
-          Number of passengers: {{ passenger.numberOfPassengers }}
-        </span>
-        <div *ngIf="passenger.carryOnBaggage">
-          <span class="col s10 checkboxes-confirm">
-            Hand luggage: 
-            <label class="checkboxes">
-              <input type="checkbox" class="filled-in" checked disabled>
-              <span></span>
-            </label>
+    <div class="info-container">
+      <ul class="collection">
+        <li class="collection-item row info-li" *ngFor="let passenger of passengerValues">
+          <span class="col s10"
+            >First name and last name : {{ passenger.firstName }} {{ passenger.lastName }}
           </span>
-        </div>
-        <div *ngIf="passenger.checkedBaggage">
-          <span class="col s10 checkboxes-confirm">
-            Checked luggage: 
-            <label class="checkboxes">
-              <input type="checkbox" class="filled-in" checked disabled>
-              <span></span>
-            </label>
+          <span class="col s10">
+            Email : {{ passenger.email }}
           </span>
-        </div>
-      </li>
-    </ul>
+          <span class="col s10">
+            Phone : {{ passenger.phoneNumber }}
+          </span>
+          <span class="col s10">
+            Address : {{ passenger.address }}
+          </span>
+          <span class="col s10">
+            Number of passengers: {{ passenger.numberOfPassengers }}
+          </span>
+          <div *ngIf="passenger.carryOnBaggage">
+            <span class="col s10 checkboxes-confirm">
+              Hand luggage: 
+              <label class="checkboxes">
+                <input type="checkbox" class="filled-in" checked disabled>
+                <span></span>
+              </label>
+            </span>
+          </div>
+          <div *ngIf="passenger.checkedBaggage">
+            <span class="col s10 checkboxes-confirm">
+              Checked luggage: 
+              <label class="checkboxes">
+                <input type="checkbox" class="filled-in" checked disabled>
+                <span></span>
+              </label>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
