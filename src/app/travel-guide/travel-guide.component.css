@@ -1,0 +1,17 @@
+.travelguide-img{
+    width: 30vw;
+    height: auto;
+}
+
+article{
+    text-align: justify;
+}
+
+.travelguide-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
