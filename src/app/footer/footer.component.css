@@ -1,0 +1,23 @@
+a{
+    color: white !important;
+  }
+
+  a:hover{
+    color: black !important;
+  }
+
+  .page-footer{
+    background-color: #426492 !important;
+    color: white;
+    font-weight: bold;
+
+  }
+
+  .my-contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
