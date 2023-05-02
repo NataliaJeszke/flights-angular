@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-travel-guide',
   templateUrl: './travel-guide.component.html',
-  styleUrls: ['./travel-guide.component.css']
+  styleUrls: ['./travel-guide.component.css'],
 })
 export class TravelGuideComponent {
-
+  imageUrl = '../assets/travelguide.jpg';
 }

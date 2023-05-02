@@ -30,7 +30,10 @@
     />
     <label for="phoneNumber">Phone Number (eg. 48000000000)</label>
     <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
-      <p class="card-panel red darken-1" *ngIf="phoneNumber.errors">Phone number is required</p></ng-container>
+      <p class="card-panel red darken-1" *ngIf="phoneNumber.errors">
+        Phone number is required
+      </p></ng-container
+    >
     <input
       type="tel"
       placeholder="Phone number"
@@ -85,9 +88,16 @@
         </label>
       </div>
 
-      <div class="col s12 center-align">
-        <button type="submit" class="orderBtn" [disabled]="passengerForm.invalid">Order</button>
-        <button type="button" class="backBtn" routerLink="/">Go Back</button>
+      <div class="col s12 center-align btn-container">
+        <button
+          type="submit"
+          class="btn waves-effect waves-light orderBtn"
+          [disabled]="passengerForm.invalid"
+        >
+          Order
+          <i class="material-icons right">send</i>
+        </button>
+        <button type="button" class="backBtn btn go-back-btn" (click)="goBack()">Go Back</button>
       </div>
     </div>
   </form>

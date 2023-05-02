@@ -60,4 +60,8 @@ export class FormComponent implements OnInit {
   formatDepartureDate(chosenFlightValues: FlightData): string {
     return new Date(chosenFlightValues.departure * 1000).toLocaleString();
   }
+
+  goBack(): void {
+    window.history.back();
+  }
 }
