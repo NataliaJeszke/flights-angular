@@ -18,6 +18,7 @@ export class ListComponent {
   arrivalCity: string = '';
   flightsWithIds: FlightData[] = [];
   id: string = '';
+loading: any;
 
   formatArrivalDate(flight: FlightData): string {
     return new Date(flight.arrival * 1000).toLocaleString();

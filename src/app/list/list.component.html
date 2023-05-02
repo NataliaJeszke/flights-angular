@@ -1,16 +1,19 @@
 <section>
-    <h2>Flights List</h2>
-    <ul class="collection" *ngIf="flights.length > 0">
+  <h2>Flights List</h2>
+  <ng-container *ngIf="loading; else noFlights">
+    <h4>Loading flights...</h4>
+  </ng-container>
+  <ng-container *ngIf="!loading && flights.length > 0">
+    <ul class="collection">
       <li class="collection-item row" *ngFor="let flight of searchResults">
         <span class="col s10"
           >Departure : {{ flight.departureCity }} -
           {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
-          
         </span>
         <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} - {{ formatArrivalDate(flight) }}
-          </span
-        >
+          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
+          {{ formatArrivalDate(flight) }}
+        </span>
         <div class="col s2 right-align">
           <button
             class="btn-floating btn-small green ml-5"
@@ -22,4 +25,8 @@
         </div>
       </li>
     </ul>
-  </section>
+  </ng-container>
+  <ng-template #noFlights>
+    <h4>No flights</h4>
+  </ng-template>
+</section>
