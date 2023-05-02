@@ -1,4 +1,26 @@
-# FlightsAngular
+# Flights Web App with Angular CLI
+
+## Search flights application with JSON server on GitHub
+Application that can be used to display search flights connection.
+
+## Technologies
++ Angular CLI 15.2.6
++ JSON server (on GitHub)
++ Materialize CSS
+
+## Elements
++ Routing
++ Services for http request and sending values between components
++ Modules for flight interface, passenger interface, search data interface
+
+## Assets
++ Photos from Unsplash.com
+
+
+
+
+
+==============================================================================================
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
