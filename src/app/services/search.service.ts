@@ -5,7 +5,7 @@ import { SearchFlightData } from '../models/SearchFlightData';
   providedIn: 'root'
 })
 export class SearchService {
-  searchValues: SearchFlightData[] = [];
+  private searchValues: SearchFlightData[] = [];
 
   addSearchValue(searchFlightData: SearchFlightData) {
     this.searchValues.push(searchFlightData);

@@ -5,7 +5,7 @@ import { Passenger } from '../models/PassengerInterface';
   providedIn: 'root',
 })
 export class PassengerService {
-  passengerValues: Passenger[] = [];
+ private passengerValues: Passenger[] = [];
 
   addPassengerValue(passengerData: Passenger) {
     this.passengerValues.push(passengerData);

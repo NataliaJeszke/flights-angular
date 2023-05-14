@@ -3,7 +3,8 @@ import { Passenger } from '../models/PassengerInterface';
 import { Router } from '@angular/router';
 import { PassengerService } from '../services/passenger.service';
 import { ChosenFlightService } from '../services/chosen-flight.service';
-import { FlightData } from '../models/FlightDataInterface';
+import { FlightDataInterface } from '../models/FlightDataInterface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +12,7 @@ import { FlightData } from '../models/FlightDataInterface';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  chosenFlightValues: FlightData[] = [];
+  chosenFlightValues: FlightDataInterface = {} as FlightDataInterface;
   model: Partial<Passenger> = {
     firstName: '',
     lastName: '',
@@ -26,7 +27,8 @@ export class FormComponent implements OnInit {
   constructor(
     private passengerService: PassengerService,
     private chosenFlightService: ChosenFlightService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
   ngOnInit(): void {
     this.model = {
@@ -54,14 +56,8 @@ export class FormComponent implements OnInit {
     );
   }
 
-  formatArrivalDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.arrival * 1000).toLocaleString();
-  }
-  formatDepartureDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.departure * 1000).toLocaleString();
-  }
 
   goBack(): void {
-    window.history.back();
+    this.location.back();
   }
 }
