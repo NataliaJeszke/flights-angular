@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FlightData } from '../models/FlightDataInterface';
 import { HttpFlightsService } from '../services/http-flights.service';
 import { ChosenFlightService } from '../services/chosen-flight.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-popular',
@@ -18,17 +19,15 @@ export class PopularComponent {
   departureCity: string = '';
   arrivalCity: string = '';
   popularResults: FlightData[] = [];
+  subscription: Subscription | undefined;
 
   ngOnInit(): void {
-    this.get();
-  }
-
-  get() {
-    this.http.getFlights().subscribe((response) => {
+    this.subscription = this.http.getFlights().subscribe((response) => {
       this.flights = response;
       console.log(this.flights);
     });
   }
+
 
   get popularFlights() {
     const flightsWithIds = this.flights.map((flight, index) => {
@@ -52,6 +51,11 @@ export class PopularComponent {
     const chosenFlight = this.popularFlights.find((flight) => flight.id === id);
     if (chosenFlight) {
       this.chosenFlightService.addChosenFlightValue(chosenFlight);
+    }
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

@@ -1,17 +1,17 @@
 <section>
   <h2>Flights List</h2>
-  <ng-container *ngIf="loading; else noFlights">
+  <ng-container *ngIf="loading; else loadingFlights">
     <h4>Loading flights...</h4>
   </ng-container>
-  <ng-container *ngIf="!loading && flights.length > 0">
-    <ul class="collection">
+  <ng-template #loadingFlights>
+    <ul class="collection" *ngIf="searchResults.length > 0">
       <li class="collection-item row" *ngFor="let flight of searchResults">
-        <span class="col s10"
-          >Departure : {{ flight.departureCity }} -
+        <span class="col s10">
+          Departure: {{ flight.departureCity }} -
           {{ flight.departureAirport }} - {{ formatDepartureDate(flight) }}
         </span>
         <span class="col s10">
-          Arrival : {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
+          Arrival: {{ flight.arrivalCity }} - {{ flight.arrivalAirport }} -
           {{ formatArrivalDate(flight) }}
         </span>
         <div class="col s2 right-align">
@@ -25,8 +25,6 @@
         </div>
       </li>
     </ul>
-  </ng-container>
-  <ng-template #noFlights>
-    <h4>No flights</h4>
+    <h4 *ngIf="searchResults.length === 0">No flights</h4>
   </ng-template>
 </section>
