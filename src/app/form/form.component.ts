@@ -23,9 +23,6 @@ export class FormComponent implements OnInit {
     checkedBaggage: false,
   };
 
-  departureDate: string = "" ;
-  arrivalDate: string= "";
-
   constructor(
     private passengerService: PassengerService,
     private chosenFlightService: ChosenFlightService,
@@ -57,12 +54,6 @@ export class FormComponent implements OnInit {
     );
   }
 
-  formatArrivalDate(chosenFlightValues: FlightData): string {
-    return this.arrivalDate= new Date(chosenFlightValues.arrival * 1000).toLocaleString();
-  }
-  formatDepartureDate(chosenFlightValues: FlightData): string {
-    return this.departureDate = new Date(chosenFlightValues.departure * 1000).toLocaleString();
-  }
 
   // goBack(): void {
   //   window.history.back();
