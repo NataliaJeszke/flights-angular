@@ -44,13 +44,6 @@ export class ListComponent implements OnInit {
     });
   }
 
-  // get() {
-  //   this.http.getFlights().subscribe((response) => {
-  //     this.flights = response;
-  //     this.filterFlight();
-  //   });
-  // }
-
   filterFlight() {
     this.searchResults = [];
 
