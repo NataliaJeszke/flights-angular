@@ -3,7 +3,8 @@ import { Passenger } from '../models/PassengerInterface';
 import { Router } from '@angular/router';
 import { PassengerService } from '../services/passenger.service';
 import { ChosenFlightService } from '../services/chosen-flight.service';
-import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
+import { FlightDataInterface } from '../models/FlightDataInterface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -26,7 +27,8 @@ export class FormComponent implements OnInit {
   constructor(
     private passengerService: PassengerService,
     private chosenFlightService: ChosenFlightService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
   ngOnInit(): void {
     this.model = {
@@ -55,7 +57,7 @@ export class FormComponent implements OnInit {
   }
 
 
-  // goBack(): void {
-  //   window.history.back();
-  // }
+  goBack(): void {
+    this.location.back();
+  }
 }
