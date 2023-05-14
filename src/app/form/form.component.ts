@@ -3,7 +3,7 @@ import { Passenger } from '../models/PassengerInterface';
 import { Router } from '@angular/router';
 import { PassengerService } from '../services/passenger.service';
 import { ChosenFlightService } from '../services/chosen-flight.service';
-import { FlightData } from '../models/FlightDataInterface';
+import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +11,7 @@ import { FlightData } from '../models/FlightDataInterface';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  chosenFlightValues: FlightData[] = [];
+  chosenFlightValues: FlightDataInterface = {} as FlightDataInterface;
   model: Partial<Passenger> = {
     firstName: '',
     lastName: '',
@@ -22,6 +22,9 @@ export class FormComponent implements OnInit {
     carryOnBaggage: false,
     checkedBaggage: false,
   };
+
+  departureDate: string = "" ;
+  arrivalDate: string= "";
 
   constructor(
     private passengerService: PassengerService,
@@ -55,13 +58,13 @@ export class FormComponent implements OnInit {
   }
 
   formatArrivalDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.arrival * 1000).toLocaleString();
+    return this.arrivalDate= new Date(chosenFlightValues.arrival * 1000).toLocaleString();
   }
   formatDepartureDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.departure * 1000).toLocaleString();
+    return this.departureDate = new Date(chosenFlightValues.departure * 1000).toLocaleString();
   }
 
-  goBack(): void {
-    window.history.back();
-  }
+  // goBack(): void {
+  //   window.history.back();
+  // }
 }

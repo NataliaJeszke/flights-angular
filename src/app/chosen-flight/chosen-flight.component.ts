@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChosenFlightService } from '../services/chosen-flight.service';
-import { FlightData } from '../models/FlightDataInterface';
+import { FlightData, FlightDataInterface } from '../models/FlightDataInterface';
 
 @Component({
   selector: 'app-chosen-flight',
@@ -8,16 +8,22 @@ import { FlightData } from '../models/FlightDataInterface';
   styleUrls: ['./chosen-flight.component.css'],
 })
 export class ChosenFlightComponent implements OnInit {
-  chosenFlightValues: FlightData[] = [];
+  chosenFlightValues: FlightDataInterface = {} as FlightDataInterface;
+  departureDate: string = '';
+  arrivalDate: string = '';
   constructor(private chosenFlightService: ChosenFlightService) {}
 
   ngOnInit(): void {
     this.chosenFlightValues = this.chosenFlightService.getChosenFlightValues();
   }
-  formatArrivalDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.arrival * 1000).toLocaleString();
+  formatArrivalDate(chosenFlightValues: FlightDataInterface): string {
+    return (this.arrivalDate = new Date(
+      chosenFlightValues.arrival * 1000
+    ).toLocaleString());
   }
-  formatDepartureDate(chosenFlightValues: FlightData): string {
-    return new Date(chosenFlightValues.departure * 1000).toLocaleString();
+  formatDepartureDate(chosenFlightValues: FlightDataInterface): string {
+    return (this.departureDate = new Date(
+      chosenFlightValues.departure * 1000
+    ).toLocaleString());
   }
 }
