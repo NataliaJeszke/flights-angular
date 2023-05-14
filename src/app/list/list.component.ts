@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy  {
   searchValues: SearchFlightData[] = [];
   flights: FlightData[] = [];
   searchResults: FlightData[] = [];
