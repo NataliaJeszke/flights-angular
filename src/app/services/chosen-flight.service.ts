@@ -5,7 +5,7 @@ import { FlightDataInterface } from '../models/FlightDataInterface';
   providedIn: 'root',
 })
 export class ChosenFlightService {
-  chosenFlightValues: FlightDataInterface = {} as FlightDataInterface;
+  private chosenFlightValues: FlightDataInterface = {} as FlightDataInterface;
 
   addChosenFlightValue(flightData: FlightDataInterface) {
     this.chosenFlightValues = {
