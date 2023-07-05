@@ -1,0 +1,6 @@
+[
+    {
+        "technologies": "Angular CLI 15.2.6, JSON server (on GitHub), Materialize CSS",
+        "description": "Application that can be used to display search flights connection."
+    }
+]
