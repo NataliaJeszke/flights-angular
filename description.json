@@ -1,6 +1,7 @@
 [
     {
         "technologies": "Angular CLI 15.2.6, JSON server (on GitHub), Materialize CSS",
-        "description": "Application that can be used to display search flights connection."
+        "description": "Application that can be used to display search flights connection.",
+        "image": "https://lcuvljxipgjrwgyoxwzd.supabase.co/storage/v1/object/public/images-portfolio/flights-angular.png"
     }
 ]
